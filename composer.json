@@ -1,0 +1,50 @@
+{
+  "name": "arrowsgm/amped-laravel",
+  "description": "An HTML to AMP converter for Laravel based on amp-wp Wordpress plugin",
+  "type": "library",
+  "license": "GPLv2",
+  "version": "0.1",
+  "authors": [
+    {
+      "name": "Eugene Vit",
+      "homepage": "https://arrows-dev.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "ampproject/amp-wp": "^1.4",
+    "ext-libxml": "*",
+    "ext-dom": "*",
+    "ext-json": "*",
+    "guzzlehttp/guzzle": "~6.0"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/ampproject/amp-wp"
+    }
+  ],
+  "require-dev": {
+    "orchestra/testbench": "^5.0@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "Arrowsgm\\Amped\\": "src/"
+    },
+    "files": [
+      "includes/helpers.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Arrowsgm\\Amped\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Arrowsgm\\Amped\\AmpedLaravelServiceProvider"
+      ]
+    }
+  }
+}
