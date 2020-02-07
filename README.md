@@ -13,6 +13,21 @@ AMP is a fast-growing framework, but unfortunately, currently, there are no (or 
 
 ## Installation
 
+Add to your `composer.json` repositories section link to amp-wp plugin:
+```json
+...
+"repositories": [
+...
+    {
+      "type": "vcs",
+      "url": "https://github.com/ampproject/amp-wp"
+    }
+  ]
+...
+```
+
+when require package as usual:
+
 ```bash
 composer require arrowsgm/amped-laravel
 ```
