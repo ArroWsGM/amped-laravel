@@ -10,7 +10,7 @@ use Arrowsgm\Amped\AmpUtils\Sanitizers\IframeSanitizer;
 return [
     'amp_custom_css_path' => public_path('css'),
 
-    'amp_custom_css_max_size' => 50000,
+    'amp_custom_css_max_size' => 75000,
 
     'embeds' => [],
 
