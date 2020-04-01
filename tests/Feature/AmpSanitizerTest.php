@@ -68,6 +68,36 @@ class AmpSanitizerTest extends TestCase
         $this->assertEquals('<span lang="EN-US" class="amp-wp-98577d5">Telegram</span>', $amp_content);
     }
 
+	/**
+	 * @group fb_test
+	 */
+	public function testFbVideo()
+	{
+		$amp_content = Amped::convert('<div class="fb-video" data-href="https://www.facebook.com/KOMONews/videos/225376735289463/" data-width="480" data-height="270" data-show-captions="false"></div>');
+
+		$this->assertEquals('<amp-facebook layout="responsive" width="480" height="270" data-href="https://www.facebook.com/KOMONews/videos/225376735289463/" data-show-captions="false" data-embed-as="video"></amp-facebook>', $amp_content);
+	}
+
+	/**
+	 * @group fb_test
+	 */
+	public function testFbVideoAuto()
+	{
+		$amp_content = Amped::convert('<div class="fb-video" data-href="https://www.facebook.com/KOMONews/videos/225376735289463/" data-width="auto" data-height="360" data-show-captions="false"></div>');
+
+		$this->assertEquals('<amp-facebook layout="fixed-height" width="auto" height="360" data-href="https://www.facebook.com/KOMONews/videos/225376735289463/" data-show-captions="false" data-embed-as="video"></amp-facebook>', $amp_content);
+	}
+
+	/**
+	 * @group fb_test
+	 */
+	public function testFbPost()
+	{
+		$amp_content = Amped::convert('<div class="fb-post" data-href="https://www.facebook.com/SKRYPIN.UA/posts/1089692508082179" data-width="500" data-show-text="true"><blockquote cite="https://developers.facebook.com/SKRYPIN.UA/posts/1089692508082179" class="fb-xfbml-parse-ignore"><p>Добрий ранок! Є крута пропозиція – розпочати день із перегляду свіженького, цікавого і суперважливого випуску «ТА Й...</p>Опубліковано <a href="https://www.facebook.com/SKRYPIN.UA/">skrypin.ua</a>&nbsp;<a href="https://developers.facebook.com/SKRYPIN.UA/posts/1089692508082179">Середа, 1 квітня 2020 р.</a></blockquote></div>');
+
+		$this->assertEquals('<amp-facebook layout="responsive" width="500" height="380" data-href="https://www.facebook.com/SKRYPIN.UA/posts/1089692508082179" data-show-text="true" data-embed-as="post"><blockquote cite="https://developers.facebook.com/SKRYPIN.UA/posts/1089692508082179" class="fb-xfbml-parse-ignore" fallback=""><p>Добрий ранок! Є крута пропозиція – розпочати день із перегляду свіженького, цікавого і суперважливого випуску «ТА Й...</p>Опубліковано <a href="https://www.facebook.com/SKRYPIN.UA/">skrypin.ua</a> <a href="https://developers.facebook.com/SKRYPIN.UA/posts/1089692508082179">Середа, 1 квітня 2020 р.</a></blockquote></amp-facebook>', $amp_content);
+	}
+
     private function data()
     {
         return include 'data.php';

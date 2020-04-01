@@ -2,6 +2,8 @@
 /**
  * Order inside embeds and sanitizers arrays IS MATTER!
  */
+
+use Arrowsgm\Amped\AmpUtils\Sanitizers\FacebookSanitizer;
 use Arrowsgm\Amped\AmpUtils\Sanitizers\ImageSanitizer;
 use Arrowsgm\Amped\AmpUtils\Sanitizers\StyleSanitizer;
 use Arrowsgm\Amped\AmpUtils\Sanitizers\TagAndAttributeSanitizer;
@@ -31,6 +33,10 @@ return [
             'add_placeholder' => true,
             'current_origin' => env('APP_URL'),
         ],
+	    FacebookSanitizer::class => [
+	    	'width' => 600,
+	    	'height' => 380,
+	    ],
         'AMP_Gallery_Block_Sanitizer' => [ // Note: Gallery block sanitizer must come after image sanitizers since itś logic is using the already sanitized images.
             'carousel_required' => false, // For back-compat.
         ],
