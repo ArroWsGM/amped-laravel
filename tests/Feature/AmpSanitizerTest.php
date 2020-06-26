@@ -98,6 +98,26 @@ class AmpSanitizerTest extends TestCase
 		$this->assertEquals('<amp-facebook layout="responsive" width="500" height="380" data-href="https://www.facebook.com/SKRYPIN.UA/posts/1089692508082179" data-show-text="true" data-embed-as="post"><blockquote cite="https://developers.facebook.com/SKRYPIN.UA/posts/1089692508082179" class="fb-xfbml-parse-ignore" fallback=""><p>Добрий ранок! Є крута пропозиція – розпочати день із перегляду свіженького, цікавого і суперважливого випуску «ТА Й...</p>Опубліковано <a href="https://www.facebook.com/SKRYPIN.UA/">skrypin.ua</a> <a href="https://developers.facebook.com/SKRYPIN.UA/posts/1089692508082179">Середа, 1 квітня 2020 р.</a></blockquote></amp-facebook>', $amp_content);
 	}
 
+	/**
+	 * @group media
+	 */
+	public function testAudio()
+	{
+		$amp_content = Amped::convert('<audio src="/storage/media/media-library/2020/06/25/merilinor-pisak-official-audio-1593103121-2xIAi.mp3" controls="controls">Ваш браузер не підтримує вбудоване аудіо, та Ви можете <a href="/storage/media/media-library/2020/06/25/merilinor-pisak-official-audio-1593103121-2xIAi.mp3">завантажити його</a> та послухати за допомогою Вашого улюбленного плеєру!</audio>');
+
+		$this->assertEquals('<amp-audio src="/storage/media/media-library/2020/06/25/merilinor-pisak-official-audio-1593103121-2xIAi.mp3" controls="controls" width="auto">Ваш браузер не підтримує вбудоване аудіо, та Ви можете <a href="/storage/media/media-library/2020/06/25/merilinor-pisak-official-audio-1593103121-2xIAi.mp3" fallback="">завантажити його</a> та послухати за допомогою Вашого улюбленного плеєру!<noscript><audio controls="controls">Ваш браузер не підтримує вбудоване аудіо, та Ви можете  та послухати за допомогою Вашого улюбленного плеєру!</audio></noscript></amp-audio>', $amp_content);
+	}
+
+	/**
+	 * @group media
+	 */
+	public function testVideo()
+	{
+		$amp_content = Amped::convert('<video src="/storage/media/media-library/2020/06/25/video-1467816912-xb0aygyh-1593073667-FuBCN.mp4" controls="controls" width="100%" height="auto">Ваш браузер не підтримує вбудоване відео, та Ви можете <a href="/storage/media/media-library/2020/06/25/video-1467816912-xb0aygyh-1593073667-FuBCN.mp4">завантажити його</a> та подивитись за допомогою Вашого улюбленного плеєру!</video>');
+
+		$this->assertEquals('<amp-video src="/storage/media/media-library/2020/06/25/video-1467816912-xb0aygyh-1593073667-FuBCN.mp4" controls="" height="400" layout="fixed-height" width="auto" class="i-amphtml-layout-fixed-height i-amphtml-layout-size-defined i-amphtml-element i-amphtml-media-component i-amphtml-video-interface i-amphtml-layout" style="height:400px;" i-amphtml-layout="fixed-height">Ваш браузер не підтримує вбудоване відео, та Ви можете <a href="/storage/media/media-library/2020/06/25/video-1467816912-xb0aygyh-1593073667-FuBCN.mp4" fallback="">завантажити його</a> та подивитись за допомогою Вашого улюбленного плеєру!<noscript><video controls="controls" width="100%" height="auto">Ваш браузер не підтримує вбудоване відео, та Ви можете  та подивитись за допомогою Вашого улюбленного плеєру!</video></noscript><video playsinline="" webkit-playsinline="" controls="" class="i-amphtml-fill-content i-amphtml-replaced-content" src="/storage/media/media-library/2020/06/25/video-1467816912-xb0aygyh-1593073667-FuBCN.mp4"></video></amp-video>', $amp_content);
+	}
+
     private function data()
     {
         return include 'data.php';
