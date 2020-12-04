@@ -3,7 +3,7 @@
   "description": "An HTML to AMP converter for Laravel based on amp-wp Wordpress plugin",
   "type": "library",
   "license": "GPL-2.0-or-later",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "authors": [
     {
       "name": "Eugene Vit",
@@ -16,7 +16,7 @@
     "ext-libxml": "*",
     "ext-dom": "*",
     "ext-json": "*",
-    "guzzlehttp/guzzle": "~6.0"
+    "guzzlehttp/guzzle": "~6.0|^7.0"
   },
   "repositories": [
     {
