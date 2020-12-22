@@ -46,5 +46,9 @@
         "Arrowsgm\\Amped\\AmpedLaravelServiceProvider"
       ]
     }
+  },
+  "suggest": {
+    "james-heinrich/getid3": "For resolving video width and height for custom video sanitizer",
+    "php-ffmpeg/php-ffmpeg": "More advanced alternative for james-heinrich/getid3; requres ffprobe/ffmpeg"
   }
 }

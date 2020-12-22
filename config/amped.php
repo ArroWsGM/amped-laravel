@@ -8,6 +8,7 @@ use Arrowsgm\Amped\AmpUtils\Sanitizers\ImageSanitizer;
 use Arrowsgm\Amped\AmpUtils\Sanitizers\StyleSanitizer;
 use Arrowsgm\Amped\AmpUtils\Sanitizers\TagAndAttributeSanitizer;
 use Arrowsgm\Amped\AmpUtils\Sanitizers\IframeSanitizer;
+use Arrowsgm\Amped\AmpUtils\Sanitizers\VideoSanitizer;
 
 return [
     'amp_custom_css_path' => public_path('css'),
@@ -24,7 +25,7 @@ return [
         'AMP_Comments_Sanitizer' => [
             'comments_live_list' => false,
         ],
-        'AMP_Video_Sanitizer' => [],
+        VideoSanitizer::class => [], // filter_video_dimensions method of the video sanitizer require per-project fine tuning
         'AMP_O2_Player_Sanitizer' => [],
         'AMP_Audio_Sanitizer' => [],
         'AMP_Playbuzz_Sanitizer' => [],

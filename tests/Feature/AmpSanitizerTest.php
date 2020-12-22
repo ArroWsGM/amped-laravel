@@ -4,6 +4,7 @@ namespace Arrowsgm\Amped\Tests;
 
 use Arrowsgm\Amped\AmpUtils\AmpContent;
 use Arrowsgm\Amped\Facades\Amped;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class AmpSanitizerTest extends TestCase
@@ -115,7 +116,7 @@ class AmpSanitizerTest extends TestCase
 	{
 		$amp_content = Amped::convert('<video src="/storage/media/media-library/2020/06/25/video-1467816912-xb0aygyh-1593073667-FuBCN.mp4" controls="controls" width="100%" height="auto">Ваш браузер не підтримує вбудоване відео, та Ви можете <a href="/storage/media/media-library/2020/06/25/video-1467816912-xb0aygyh-1593073667-FuBCN.mp4">завантажити його</a> та подивитись за допомогою Вашого улюбленного плеєру!</video>');
 
-		$this->assertEquals('<amp-video src="/storage/media/media-library/2020/06/25/video-1467816912-xb0aygyh-1593073667-FuBCN.mp4" controls="" height="400" layout="fixed-height" width="auto" class="i-amphtml-layout-fixed-height i-amphtml-layout-size-defined i-amphtml-element i-amphtml-media-component i-amphtml-video-interface i-amphtml-layout" style="height:400px;" i-amphtml-layout="fixed-height">Ваш браузер не підтримує вбудоване відео, та Ви можете <a href="/storage/media/media-library/2020/06/25/video-1467816912-xb0aygyh-1593073667-FuBCN.mp4" fallback="">завантажити його</a> та подивитись за допомогою Вашого улюбленного плеєру!<noscript><video controls="controls" width="100%" height="auto">Ваш браузер не підтримує вбудоване відео, та Ви можете  та подивитись за допомогою Вашого улюбленного плеєру!</video></noscript><video playsinline="" webkit-playsinline="" controls="" class="i-amphtml-fill-content i-amphtml-replaced-content" src="/storage/media/media-library/2020/06/25/video-1467816912-xb0aygyh-1593073667-FuBCN.mp4"></video></amp-video>', $amp_content);
+		$this->assertEquals('<amp-video src="/storage/media/media-library/2020/06/25/video-1467816912-xb0aygyh-1593073667-FuBCN.mp4" controls="" height="400" layout="fixed-height" width="auto">Ваш браузер не підтримує вбудоване відео, та Ви можете <a href="/storage/media/media-library/2020/06/25/video-1467816912-xb0aygyh-1593073667-FuBCN.mp4" fallback="">завантажити його</a> та подивитись за допомогою Вашого улюбленного плеєру!<noscript><video controls="controls" width="100%" height="auto">Ваш браузер не підтримує вбудоване відео, та Ви можете  та подивитись за допомогою Вашого улюбленного плеєру!</video></noscript></amp-video>', $amp_content);
 	}
 
     private function data()
