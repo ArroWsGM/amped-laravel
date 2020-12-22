@@ -16,7 +16,8 @@
     "ext-libxml": "*",
     "ext-dom": "*",
     "ext-json": "*",
-    "guzzlehttp/guzzle": "~6.0|^7.0"
+    "guzzlehttp/guzzle": "~6.0|^7.0",
+    "james-heinrich/getid3": "^1.9@dev"
   },
   "repositories": [
     {
@@ -46,5 +47,9 @@
         "Arrowsgm\\Amped\\AmpedLaravelServiceProvider"
       ]
     }
+  },
+  "suggest": {
+    "james-heinrich/getid3": "For resolving video width and height for custom video sanitizer",
+    "php-ffmpeg/php-ffmpeg": "More advanced alternative for james-heinrich/getid3; requres ffprobe/ffmpeg"
   }
 }
