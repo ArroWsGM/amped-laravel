@@ -16,8 +16,7 @@
     "ext-libxml": "*",
     "ext-dom": "*",
     "ext-json": "*",
-    "guzzlehttp/guzzle": "~6.0|^7.0",
-    "james-heinrich/getid3": "^1.9@dev"
+    "guzzlehttp/guzzle": "~6.0|^7.0"
   },
   "repositories": [
     {
