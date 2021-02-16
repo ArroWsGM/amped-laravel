@@ -92,6 +92,16 @@ class AmpSanitizerTest extends TestCase
 	/**
 	 * @group fb_test
 	 */
+	public function testFbVideoNoWidth()
+	{
+		$amp_content = Amped::convert('<div class="fb-video" data-href="https://www.facebook.com/KOMONews/videos/225376735289463/" data-width="" data-show-captions="false"></div>');
+
+		$this->assertEquals('<amp-facebook layout="fixed-height" width="auto" height="380" data-href="https://www.facebook.com/KOMONews/videos/225376735289463/" data-show-captions="false" data-embed-as="video"></amp-facebook>', $amp_content);
+	}
+
+	/**
+	 * @group fb_test
+	 */
 	public function testFbPost()
 	{
 		$amp_content = Amped::convert('<div class="fb-post" data-href="https://www.facebook.com/SKRYPIN.UA/posts/1089692508082179" data-width="500" data-show-text="true"><blockquote cite="https://developers.facebook.com/SKRYPIN.UA/posts/1089692508082179" class="fb-xfbml-parse-ignore"><p>Добрий ранок! Є крута пропозиція – розпочати день із перегляду свіженького, цікавого і суперважливого випуску «ТА Й...</p>Опубліковано <a href="https://www.facebook.com/SKRYPIN.UA/">skrypin.ua</a>&nbsp;<a href="https://developers.facebook.com/SKRYPIN.UA/posts/1089692508082179">Середа, 1 квітня 2020 р.</a></blockquote></div>');
