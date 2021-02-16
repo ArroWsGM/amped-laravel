@@ -10,6 +10,8 @@ AMP is a fast-growing framework, but unfortunately, currently, there are no (or 
 - PHP >= 7.2
 - Laravel >= 6.x
 
+## Update from versions < v0.4.x
+You need to change repository url in your composer.json from `https://github.com/ampproject/amp-wp` to `https://github.com/arrowsgm/amp-wp`, this is a hard-forked version 1.4.4 of the `ampproject/amp-wp` package with updated dependencies.
 
 ## Installation
 
@@ -20,7 +22,7 @@ Add to your `composer.json` repositories section link to amp-wp plugin:
 ...
     {
       "type": "vcs",
-      "url": "https://github.com/ampproject/amp-wp"
+      "url": "https://github.com/arrowsgm/amp-wp"
     }
   ]
 ...
