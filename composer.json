@@ -3,7 +3,7 @@
   "description": "An HTML to AMP converter for Laravel based on amp-wp Wordpress plugin",
   "type": "library",
   "license": "GPL-2.0-or-later",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "authors": [
     {
       "name": "Eugene Vit",
@@ -21,7 +21,7 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/ampproject/amp-wp"
+      "url": "https://github.com/arrowsgm/amp-wp"
     }
   ],
   "require-dev": {
