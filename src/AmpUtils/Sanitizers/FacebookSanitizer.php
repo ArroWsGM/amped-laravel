@@ -134,7 +134,7 @@ class FacebookSanitizer extends AMP_Base_Sanitizer {
 			'height' => $node->hasAttribute( 'data-height' ) ? $node->getAttribute( 'data-height' ) : $this->args['height'],
 		];
 
-		if ( '100%' === $attributes['width'] || 'auto' === $attributes['width'] ) {
+		if ( '100%' === $attributes['width'] || 'auto' === $attributes['width'] || '' === $attributes['width'] ) {
 			$attributes['layout'] = 'fixed-height';
 			$attributes['width']  = 'auto';
 		}
