@@ -110,7 +110,15 @@ class Amped
         return env('APP_DEBUG') ? '#development=1' : '';
     }
 
-	public function optimize($html_page)
+    /**
+     * Optimize amp-html
+     * TODO: Errors?
+     *
+     * @param mixed $html_page
+     *
+     * @return string
+     */
+	public function optimize($html_page): string
 	{
 		if (! is_string($html_page) || !$html_page) {
 			return $html_page;
@@ -124,6 +132,6 @@ class Amped
             $errorCollection
         );
 
-		return $errorCollection->count() ? $html_page : $optimizedHtml;
+		return $optimizedHtml ?: $html_page;
     }
 }
