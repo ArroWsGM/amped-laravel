@@ -12,7 +12,8 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "ampproject/amp-wp": "1.4.4",
+    "ampproject/amp-toolbox": "^0.1",
+    "ampproject/amp-wp": "dev-main",
     "ext-libxml": "*",
     "ext-dom": "*",
     "ext-json": "*",

@@ -5,6 +5,7 @@ namespace Arrowsgm\Amped;
 use AMP_Autoloader;
 use Arrowsgm\Amped\Exceptions\AmpPluginNotFoundException;
 use Illuminate\Foundation\AliasLoader;
+use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Arrowsgm\Amped\Facades\Amped;
 
@@ -29,7 +30,7 @@ class AmpedLaravelServiceProvider extends ServiceProvider
      * Bootstrap services.
      *
      * @return void
-     * @throws AmpPluginNotFoundException
+     * @throws AmpPluginNotFoundException|\Illuminate\Contracts\Container\BindingResolutionException
      */
     public function boot()
     {
@@ -41,6 +42,7 @@ class AmpedLaravelServiceProvider extends ServiceProvider
 
         $this->registerFacades();
         $this->registerConfig();
+        $this->registerMiddleware();
     }
 
     /**
@@ -104,5 +106,22 @@ class AmpedLaravelServiceProvider extends ServiceProvider
         Amped::embeds(config('amped.embeds'));
         Amped::sanitizers(config('amped.sanitizers'));
         Amped::args(config('amped.args'));
+    }
+
+    /**
+     * Register any default fields to the app.
+     *
+     * @return void
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     */
+    private function registerMiddleware()
+    {
+        $router = $this->app->make(Router::class);
+
+        foreach(config('amped.middleware', []) as $name => $class ){
+            if($name || class_exists($class)) {
+                $router->aliasMiddleware($name, $class);
+            }
+        }
     }
 }

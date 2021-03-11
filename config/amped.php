@@ -9,8 +9,13 @@ use Arrowsgm\Amped\AmpUtils\Sanitizers\StyleSanitizer;
 use Arrowsgm\Amped\AmpUtils\Sanitizers\TagAndAttributeSanitizer;
 use Arrowsgm\Amped\AmpUtils\Sanitizers\IframeSanitizer;
 use Arrowsgm\Amped\AmpUtils\Sanitizers\VideoSanitizer;
+use Arrowsgm\Amped\Http\Middleware\OptimizeAmp;
 
 return [
+    'middleware' => [
+        'amped.optimize' => OptimizeAmp::class,
+    ],
+
     'amp_custom_css_path' => public_path('css'),
 
     'amp_custom_css_max_size' => 75000,

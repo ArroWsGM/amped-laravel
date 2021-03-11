@@ -4,11 +4,72 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "04d194d6608b444adca23ecb342e0b25",
+    "content-hash": "35c9b0fa14a7dc9cc7f361d4c7c7f864",
     "packages": [
         {
+            "name": "ampproject/amp-toolbox",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ampproject/amp-toolbox-php.git",
+                "reference": "c14b5b9f9c9c2af3d78d791750d35dc83667b65b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ampproject/amp-toolbox-php/zipball/c14b5b9f9c9c2af3d78d791750d35dc83667b65b",
+                "reference": "c14b5b9f9c9c2af3d78d791750d35dc83667b65b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-iconv": "*",
+                "ext-json": "*",
+                "ext-libxml": "*",
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "civicrm/composer-downloads-plugin": "^2.1",
+                "dealerdirect/phpcodesniffer-composer-installer": "0.7.0",
+                "ext-zip": "*",
+                "php-parallel-lint/php-parallel-lint": "^1.2",
+                "phpcompatibility/phpcompatibility-wp": "2.1.0",
+                "roave/security-advisories": "dev-master",
+                "sirbrillig/phpcs-variable-analysis": "2.9.0",
+                "squizlabs/php_codesniffer": "^3"
+            },
+            "suggest": {
+                "ext-json": "Provides native implementation of json_encode()/json_decode().",
+                "ext-mbstring": "Used by Dom\\Document to convert encoding to UTF-8 if needed."
+            },
+            "type": "library",
+            "extra": {
+                "downloads": {
+                    "phpstan": {
+                        "url": "https://github.com/phpstan/phpstan/releases/latest/download/phpstan.phar",
+                        "path": "vendor/bin/phpstan",
+                        "type": "phar"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "AmpProject\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "A collection of AMP tools making it easier to publish and host AMP pages with PHP.",
+            "support": {
+                "issues": "https://github.com/ampproject/amp-toolbox-php/issues",
+                "source": "https://github.com/ampproject/amp-toolbox-php/tree/0.1.1"
+            },
+            "time": "2020-12-11T18:20:11+00:00"
+        },
+        {
             "name": "ampproject/amp-wp",
-            "version": "1.4.4",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ArroWsGM/amp-wp.git",
@@ -48,6 +109,7 @@
                 "ext-mbstring": "Used by PHP-CSS-Parser when working with stylesheets.",
                 "ext-zip": "Enables the use of ZipArchive to export AMP Stories."
             },
+            "default-branch": true,
             "type": "wordpress-plugin",
             "extra": {
                 "patches": {
@@ -578,6 +640,7 @@
                 "codacy/coverage": "^1.4",
                 "phpunit/phpunit": "^4.8.36"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -600,6 +663,10 @@
                 "parser",
                 "stylesheet"
             ],
+            "support": {
+                "issues": "https://github.com/sabberworm/PHP-CSS-Parser/issues",
+                "source": "https://github.com/sabberworm/PHP-CSS-Parser/tree/master"
+            },
             "time": "2020-11-18T12:10:42+00:00"
         },
         {
@@ -623,6 +690,7 @@
                 "mockery/mockery": "~0.9",
                 "phpunit/phpunit": "~4.0"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -647,6 +715,10 @@
                 "stream",
                 "streamable"
             ],
+            "support": {
+                "issues": "https://github.com/willwashburn/stream/issues",
+                "source": "https://github.com/willwashburn/stream/tree/master"
+            },
             "time": "2016-03-15T11:02:50+00:00"
         }
     ],
@@ -6938,6 +7010,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "ampproject/amp-wp": 20,
         "orchestra/testbench": 20
     },
     "prefer-stable": false,
@@ -6948,5 +7021,5 @@
         "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }
