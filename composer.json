@@ -3,7 +3,7 @@
   "description": "An HTML to AMP converter for Laravel based on amp-wp Wordpress plugin",
   "type": "library",
   "license": "GPL-2.0-or-later",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "authors": [
     {
       "name": "Eugene Vit",
@@ -12,7 +12,7 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "ampproject/amp-wp": "1.4.4",
+    "ampproject/amp-wp": "dev-main",
     "ext-libxml": "*",
     "ext-dom": "*",
     "ext-json": "*",
@@ -25,7 +25,7 @@
     }
   ],
   "require-dev": {
-    "orchestra/testbench": "^5.0@dev"
+    "orchestra/testbench": "^6.20"
   },
   "autoload": {
     "psr-4": {
@@ -50,5 +50,10 @@
   "suggest": {
     "james-heinrich/getid3": "For resolving video width and height for custom video sanitizer",
     "php-ffmpeg/php-ffmpeg": "More advanced alternative for james-heinrich/getid3; requres ffprobe/ffmpeg"
+  },
+  "config": {
+    "allow-plugins": {
+      "cweagans/composer-patches": true
+    }
   }
 }
