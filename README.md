@@ -7,7 +7,7 @@ AMP is a fast-growing framework, but unfortunately, currently, there are no (or 
 
 ## Requirements
 
-- PHP >= 7.2
+- PHP >= 7.3
 - Laravel >= 6.x
 
 ## Update from versions < 0.4.x
