@@ -3,8 +3,6 @@
 namespace Arrowsgm\Amped;
 
 
-use AmpProject\Optimizer\ErrorCollection;
-use AmpProject\Optimizer\TransformationEngine;
 use Arrowsgm\Amped\AmpUtils\AmpContent;
 use Arrowsgm\Amped\Exceptions\ConfigNotLoadedException;
 use Illuminate\Support\Facades\File;
@@ -108,30 +106,5 @@ class Amped
     public function isDevParam() :string
     {
         return env('APP_DEBUG') ? '#development=1' : '';
-    }
-
-    /**
-     * Optimize amp-html
-     * TODO: Errors?
-     *
-     * @param mixed $html_page
-     *
-     * @return string
-     */
-	public function optimize($html_page): string
-	{
-		if (! is_string($html_page) || !$html_page) {
-			return $html_page;
-		}
-
-        $transformationEngine = new TransformationEngine();
-        $errorCollection      = new ErrorCollection;
-
-        $optimizedHtml = $transformationEngine->optimizeHtml(
-            $html_page,
-            $errorCollection
-        );
-
-		return $optimizedHtml ?: $html_page;
     }
 }

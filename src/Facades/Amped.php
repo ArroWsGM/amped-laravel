@@ -11,7 +11,6 @@ namespace Arrowsgm\Amped\Facades;
  * @method static string convert(string $html)
  * @method static string inlineCss(string $css_file, string $attr = 'amp-custom')
  * @method static string isDevParam()
- * @method static mixed optimize(mixed $html)
  */
 
 use Illuminate\Support\Facades\Facade;
